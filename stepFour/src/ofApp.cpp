@@ -28,7 +28,9 @@ void ofApp::setup()
     
     catEffects.init();
     catEffects.setFlip(true);
-    catEffects.createPass<NoiseWarpPass>();
+    noiseWarpPass = catEffects.createPass<NoiseWarpPass>();
+    hsbShiftPass = catEffects.createPass<HsbShiftPass>();
+    catEffects.createPass<BloomPass>();
 }
 
 //--------------------------------------------------------------
@@ -41,8 +43,10 @@ void ofApp::update()
 void ofApp::draw()
 {
     // warp our cat
+    hsbShiftPass->setHueShift(1.f + sin(ofGetElapsedTimef()));
+    noiseWarpPass->setAmplitude(ofMap(sin(0.5f * ofGetElapsedTimef()), -1.f, 1.f, 0.f, .1f));
     catEffects.begin();
-    catImage.draw(0.f, 0.f, ofGetWidth(), ofGetHeight());
+    catImage.draw(0.f, ofGetHeight(), ofGetWidth(), -ofGetHeight());
     catEffects.end(false);
     
     // look at the scene from the perspective of the projector

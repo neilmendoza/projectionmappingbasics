@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxPostProcessing.h"
+#include "HsbShiftPass.h"
 
 class ofApp : public ofBaseApp
 {
@@ -26,4 +27,6 @@ private:
     ofLight light;
     ofImage catImage;
     ofxPostProcessing catEffects;
+    HsbShiftPass::Ptr hsbShiftPass;
+    NoiseWarpPass::Ptr noiseWarpPass;
 };
