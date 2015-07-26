@@ -1,5 +1,28 @@
 #include "ofApp.h"
 
+const ofVec3f ofApp::BOX_DIMS = ofVec3f(50.f, 50.f, 50.f);
+const ofVec3f ofApp::BOX_VERTICES[] = {
+    //back
+    ofVec3f(-.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(-.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    
+    // front
+    ofVec3f(-.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(-.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, .5f * BOX_DIMS.z)
+};
+const unsigned ofApp::OUTLINE_INDICES[] = {
+    // back
+    0,1, 1,2, 2,3, 3,0,
+    // front
+    4,5, 5,6, 6,7, 7,4,
+    // sides
+    0,4, 1,5, 2,6, 3,7
+};
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
@@ -9,7 +32,25 @@ void ofApp::setup()
     
     // create a new box mesh that is the dimensions that we want
     // 10 cm by 10cm by 10cm in our case
-    boxMesh = ofMesh::box(50.f, 50.f, 50.f);
+    boxMesh = ofMesh::box(BOX_DIMS.x, BOX_DIMS.y, BOX_DIMS.z);
+    
+    // create an outline mesh using OF_PRIMITIVE_LINES mode
+    // so that every two vertices represents a line
+    outlineMesh.setMode(OF_PRIMITIVE_LINES);
+    
+    // add in all the vertices to the mesh
+    for (unsigned i = 0; i < NUM_BOX_VERTICES; ++i)
+    {
+        outlineMesh.addVertex(BOX_VERTICES[i]);
+    }
+    
+    // rather than adding each vertex multiple times, we add
+    // indices that point to where the appropriate vertices
+    // are for each line in the outline
+    for (unsigned i = 0; i < NUM_OUTLINE_INDICES; ++i)
+    {
+        outlineMesh.addIndex(OUTLINE_INDICES[i]);
+    }
     
     // put our projector 200cm away from our object that will be at the origin
     projector.setPosition(0, 0, -200.f);
@@ -40,7 +81,7 @@ void ofApp::draw()
     ofRotateY(45);
     
     // now draw our box mesh
-    boxMesh.drawWireframe();
+    outlineMesh.draw();
     
     // reset the transform to what it was before we rotated it
     ofPopMatrix();
