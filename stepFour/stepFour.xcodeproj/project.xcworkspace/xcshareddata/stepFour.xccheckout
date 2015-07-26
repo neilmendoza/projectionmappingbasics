@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5D0FE6A6-39B2-4755-8F8F-10CC0F3A0E17</string>
+	<key>IDESourceControlProjectName</key>
+	<string>stepFour</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>4E8F9BFE-A731-4328-BB93-FB5397880333</key>
+		<string>ssh://github.com/astellato/ofxSyphon.git</string>
+		<key>6DD3E228-F9D6-45E5-B054-2E76E5A290B9</key>
+		<string>https://github.com/neilmendoza/ofxPostProcessing.git</string>
+		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
+		<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>stepFour/stepFour.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>4E8F9BFE-A731-4328-BB93-FB5397880333</key>
+		<string>../../../../../addons/ofxSyphon</string>
+		<key>6DD3E228-F9D6-45E5-B054-2E76E5A290B9</key>
+		<string>../../../../../addons/ofxPostProcessing</string>
+		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mappingintro</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6DD3E228-F9D6-45E5-B054-2E76E5A290B9</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxPostProcessing</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>4E8F9BFE-A731-4328-BB93-FB5397880333</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxSyphon</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "ofxPostProcessing.h"
 #include "HsbShiftPass.h"
+#include "ofxSyphonServer.h"
 
 class ofApp : public ofBaseApp
 {
@@ -29,4 +30,5 @@ private:
     ofxPostProcessing catEffects;
     HsbShiftPass::Ptr hsbShiftPass;
     NoiseWarpPass::Ptr noiseWarpPass;
+    ofxSyphonServer syphon;
 };

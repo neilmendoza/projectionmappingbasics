@@ -71,6 +71,8 @@ void ofApp::draw()
     
     // finish drawing the scene from the perspective of the projector
     projector.end();
+    
+    syphon.publishScreen();
 }
 
 //--------------------------------------------------------------
