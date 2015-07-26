@@ -66,11 +66,11 @@ void ofApp::setup()
     projector.lookAt(ofVec3f(0.f, 0.f, 0.f));
     
     // initialise the post processing
-    post.init();
+    outlineEffects.init();
     
     // add a bloom (glow) pass to the post processing chain
-    post.createPass<BloomPass>();
-    post.createPass<FxaaPass>();
+    outlineEffects.createPass<BloomPass>();
+    outlineEffects.createPass<FxaaPass>();
 }
 
 //--------------------------------------------------------------
@@ -86,7 +86,7 @@ void ofApp::draw()
     // when using ofxPostProcessing with a camera object we do this
     // by passing the camera to the ofxPostProcessing::begin()
     // function as an argument
-    post.begin(projector);
+    outlineEffects.begin(projector);
     
     // rotate our box so by 45 degrees around the y axis
     // so it's not face on to the projector
@@ -119,7 +119,7 @@ void ofApp::draw()
     ofPopMatrix();
     
     // finish drawing the scene from the perspective of the projector
-    post.end();
+    outlineEffects.end();
 }
 
 //--------------------------------------------------------------

@@ -30,5 +30,5 @@ private:
     ofCamera projector;
     ofVboMesh boxMesh;
     ofVboMesh outlineMesh;
-    ofxPostProcessing post;
+    ofxPostProcessing outlineEffects;
 };

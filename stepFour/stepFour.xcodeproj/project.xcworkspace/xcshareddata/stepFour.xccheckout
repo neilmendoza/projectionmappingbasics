@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>3076EAE9-F301-4B44-84CB-D3A90FAFAD16</string>
+	<key>IDESourceControlProjectName</key>
+	<string>stepFour</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
+		<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+		<key>EA6724D1-552C-4860-B086-CB5FFB67FDDB</key>
+		<string>https://github.com/neilmendoza/ofxPostProcessing.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>stepFour/stepFour.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
+		<string>../../..</string>
+		<key>EA6724D1-552C-4860-B086-CB5FFB67FDDB</key>
+		<string>../../../../../addons/ofxPostProcessing</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>mappingintro</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>EA6724D1-552C-4860-B086-CB5FFB67FDDB</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxPostProcessing</string>
+		</dict>
+	</array>
+</dict>
+</plist>
