@@ -1,5 +1,7 @@
 #include "ofApp.h"
 
+#define ROUND(x) floor(x + .5f)
+
 const ofVec3f ofApp::BOX_DIMS = ofVec3f(50.f, 50.f, 50.f);
 const ofVec3f ofApp::BOX_VERTICES[] = {
     //back
@@ -75,7 +77,7 @@ void ofApp::setup()
     // initialise the cat effects
     catEffects.init();
     catEffects.setFlip(true);
-    noiseWarpPass = catEffects.createPass<NoiseWarpPass>();
+    //noiseWarpPass = catEffects.createPass<NoiseWarpPass>();
     hsbShiftPass = catEffects.createPass<HsbShiftPass>();
     
     // initialise the outline effects
@@ -85,14 +87,39 @@ void ofApp::setup()
     // to the post processing chain
     outlineEffects.createPass<BloomPass>();
     outlineEffects.createPass<FxaaPass>();
+    
+    // load the audio
+    soundPlayer.loadSound("Quirky Dog.mp3");
+    soundPlayer.setLoop(OF_LOOP_NORMAL);
+    soundPlayer.play();
+    
+    // initialise the smoothed fft and max fft values to zero
+    memset(smoothedFft, 0, sizeof(float) * NUM_FFT_BANDS);
+    memset(maxFft, 0, sizeof(float) * NUM_FFT_BANDS);
+    memset(normalisedFft, 0, sizeof(float) * NUM_FFT_BANDS);
 }
 
 //--------------------------------------------------------------
 void ofApp::update()
 {
+    // get the fft
+    float* spectrum = ofSoundGetSpectrum(NUM_FFT_BANDS);
+	for (int i = 0; i < NUM_FFT_BANDS; ++i)
+    {
+		// let the smoothed calue sink to zero:
+		smoothedFft[i] *= 0.96f;
+		
+		// take the max, either the smoothed or the incoming:
+        smoothedFft[i] = max(spectrum[i], smoothedFft[i]);
+        
+        maxFft[i] = max(spectrum[i], maxFft[i]);
+        
+        normalisedFft[i] = ofMap(smoothedFft[i], 0.f, maxFft[i], 0.f, 1.f);
+	}
+    
     // update the cat effect parameters
-    hsbShiftPass->setHueShift(1.f + sin(ofGetElapsedTimef()));
-    noiseWarpPass->setAmplitude(ofMap(sin(0.5f * ofGetElapsedTimef()), -1.f, 1.f, 0.f, .1f));
+    //noiseWarpPass->setAmplitude(ofMap(smoothedFft[1], 0.f, .75f * maxFft[2], 0.f, .04f, true));
+    hsbShiftPass->setHueShift(ofMap(smoothedFft[0], 0.f, .75f * maxFft[0], 0.f, 1.f, true));
 }
 
 //--------------------------------------------------------------
@@ -100,7 +127,20 @@ void ofApp::draw()
 {
     // warp our cat
     catEffects.begin();
-    catImage.draw(0.f, ofGetHeight(), ofGetWidth(), -ofGetHeight());
+    const float barWidth = catEffects.getWidth() / NUM_FFT_BANDS;
+    // make the same number of vertical as horizontal divisions
+    const float barHeight = catEffects.getHeight() / NUM_FFT_BANDS;
+    for (unsigned i = 0; i < NUM_FFT_BANDS; ++i)
+    {
+        ofSetColor(ofFloatColor::fromHsb(i / (float)(NUM_FFT_BANDS - 1), 1.f, 1.f));
+        unsigned numBars = ROUND(normalisedFft[i] * NUM_FFT_BANDS);
+        for (unsigned j = 0; j < numBars; ++j)
+        {
+            //catImage.draw(barWidth * i, barHeight * j, barWidth, barHeight);
+            //catImage.draw(barWidth * i, barHeight * j, barWidth, barHeight);
+            ofEllipse(barWidth * (i + .5f), barHeight * (j + .5f), 0.7f * barWidth, 0.7f * barHeight);
+        }
+    }
     catEffects.end(false);
     
     // look at the scene from the perspective of the projector
@@ -144,6 +184,14 @@ void ofApp::draw()
     
     // finish drawing the scene from the perspective of the projector
     outlineEffects.end();
+    
+    for (int i = 0;i < NUM_FFT_BANDS; i++)
+    {
+		// (we use negative height here, because we want to flip them
+		// because the top corner is 0,0)
+        float height = ofMap(smoothedFft[i], 0.f, maxFft[i], 0.f, 100.f);
+		ofRect(100 + i * 10, ofGetHeight() - height, 10, height);
+	}
 }
 
 //--------------------------------------------------------------
