@@ -5,11 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>5560092A-4C20-46D9-90D7-3ACF2B9D7375</string>
+	<string>25B6F594-6A49-42D3-B37B-D1A4CFC926C1</string>
 	<key>IDESourceControlProjectName</key>
 	<string>stepOne</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
+		<string>github.com:neilmendoza/ofxPostProcessing.git</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>github.com:neilmendoza/projectionmappingbasics.git</string>
 	</dict>
@@ -17,6 +19,8 @@
 	<string>stepOne/stepOne.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
+		<string>../../../../../addons/ofxPostProcessing</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>
@@ -28,6 +32,14 @@
 	<string>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>95F70890EFD46183734FEDFE52CF53391DE6937E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxPostProcessing</string>
+		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
