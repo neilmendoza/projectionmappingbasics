@@ -5,36 +5,36 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0DAEC8CC-6459-4587-916C-4E209EBC93FC</string>
+	<string>D425F47B-DC0E-4B22-B96C-C5E931C303C8</string>
 	<key>IDESourceControlProjectName</key>
 	<string>stepThree</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
-		<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
+		<string>github.com:neilmendoza/projectionmappingbasics.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>stepThree/stepThree.xcodeproj/project.xcworkspace</string>
+	<string>stepThree/stepThree.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>78AC253A-48FB-4DE0-B984-943B573DDDCC</key>
+		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/neilmendoza/projectionmappingbasics.git</string>
+	<string>github.com:neilmendoza/projectionmappingbasics.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+	<string>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>78AC253A-48FB-4DE0-B984-943B573DDDCC</string>
+			<string>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</string>
 			<key>IDESourceControlWCCName</key>
-			<string>mappingintro</string>
+			<string>projectionmappingbasics</string>
 		</dict>
 	</array>
 </dict>

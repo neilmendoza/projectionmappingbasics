@@ -986,6 +986,43 @@
 				<key>sourceTree</key>
 				<string>SOURCE_ROOT</string>
 			</dict>
+			<key>62B7B0D4C137D19BA9D5F63E</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>HsbShiftPass.h</string>
+				<key>path</key>
+				<string>src/HsbShiftPass.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>39E4AC2824AF7C240F33427E</key>
+			<dict>
+				<key>fileRef</key>
+				<string>D81169A980ADF459AEBE5372</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>D81169A980ADF459AEBE5372</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>HsbShiftPass.cpp</string>
+				<key>path</key>
+				<string>src/HsbShiftPass.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>BB4B014C10F69532006C3DED</key>
 			<dict>
 				<key>children</key>
@@ -1266,6 +1303,7 @@
 				<array>
 					<string>E4B69E200A3A1BDC003C02F2</string>
 					<string>E4B69E210A3A1BDC003C02F2</string>
+					<string>39E4AC2824AF7C240F33427E</string>
 					<string>79308B05C4D0A9B9E404FFED</string>
 					<string>3A499904889C490DCF533C6E</string>
 					<string>DFB75F1EBE744A456AC999F4</string>
@@ -1475,6 +1513,8 @@
 					<string>E4B69E1D0A3A1BDC003C02F2</string>
 					<string>E4B69E1E0A3A1BDC003C02F2</string>
 					<string>E4B69E1F0A3A1BDC003C02F2</string>
+					<string>D81169A980ADF459AEBE5372</string>
+					<string>62B7B0D4C137D19BA9D5F63E</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>

@@ -1,6 +1,6 @@
 #include "ofApp.h"
 
-const ofVec3f ofApp::BOX_DIMS = ofVec3f(50.f, 50.f, 50.f);
+const ofVec3f ofApp::BOX_DIMS = ofVec3f(12.6f, 25.4f, 18.2f	);
 const ofVec3f ofApp::BOX_VERTICES[] = {
     //back
     ofVec3f(-.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
@@ -65,10 +65,24 @@ void ofApp::setup()
     
     projector.lookAt(ofVec3f(0.f, 0.f, 0.f));
     
-    // initialise the post processing
+    light.setPosition(1000.f, 100.f, 100.f);
+    light.enable();
+    ofDisableLighting();
+    
+    // load the cat image
+    catImage.load("cat.jpg");
+    
+    // initialise the cat effects
+    catEffects.init();
+    catEffects.setFlip(true);
+    noiseWarpPass = catEffects.createPass<NoiseWarpPass>();
+    hsbShiftPass = catEffects.createPass<HsbShiftPass>();
+    
+    // initialise the outline effects
     outlineEffects.init();
     
-    // add a bloom (glow) pass to the post processing chain
+    // add a bloom (glow) pass and an FXAA (anti-aliasing) pass
+    // to the post processing chain
     outlineEffects.createPass<BloomPass>();
     outlineEffects.createPass<FxaaPass>();
 }
@@ -76,12 +90,19 @@ void ofApp::setup()
 //--------------------------------------------------------------
 void ofApp::update()
 {
-
+    // update the cat effect parameters
+    hsbShiftPass->setHueShift(1.f + sin(ofGetElapsedTimef()));
+    noiseWarpPass->setAmplitude(ofMap(sin(0.5f * ofGetElapsedTimef()), -1.f, 1.f, 0.f, .1f));
 }
 
 //--------------------------------------------------------------
 void ofApp::draw()
 {
+    // warp our cat
+    catEffects.begin();
+    catImage.draw(0.f, ofGetHeight(), ofGetWidth(), -ofGetHeight());
+    catEffects.end(false);
+    
     // look at the scene from the perspective of the projector
     // when using ofxPostProcessing with a camera object we do this
     // by passing the camera to the ofxPostProcessing::begin()
@@ -102,11 +123,14 @@ void ofApp::draw()
     // that this function does not work if you are using the programmable
     // renderer in openFrameworks as it is based on functionality no
     // longer present in newer versions of OpenGL
-    ofSetLineWidth(3.f);
+    ofSetLineWidth(4.f);
     
     // draw our box mesh in dark grey
-    ofSetColor(20);
+    ofEnableLighting();
+    catEffects.getProcessedTextureReference().bind();
     boxMesh.draw();
+    catEffects.getProcessedTextureReference().unbind();
+    ofDisableLighting();
     
     // now draw a glowing green outline
     ofSetColor(0, 255, 0);

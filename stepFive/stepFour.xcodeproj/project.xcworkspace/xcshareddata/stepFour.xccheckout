@@ -5,7 +5,7 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A3F7E88F-7EAB-4BD2-A59D-B8DE18FFC3B8</string>
+	<string>5D3FAAB2-ED38-42D7-943A-2967402E84D3</string>
 	<key>IDESourceControlProjectName</key>
 	<string>stepFour</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
@@ -16,7 +16,7 @@
 		<string>github.com:neilmendoza/projectionmappingbasics.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>stepFour/stepFour.xcodeproj</string>
+	<string>stepFive/stepFour.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>

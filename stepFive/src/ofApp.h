@@ -2,6 +2,7 @@
 
 #include "ofMain.h"
 #include "ofxPostProcessing.h"
+#include "HsbShiftPass.h"
 
 class ofApp : public ofBaseApp
 {
@@ -30,5 +31,12 @@ private:
     ofCamera projector;
     ofVboMesh boxMesh;
     ofVboMesh outlineMesh;
+    ofLight light;
     ofxPostProcessing outlineEffects;
+    // cat stuff
+    ofImage catImage;
+    ofxPostProcessing catEffects;
+    HsbShiftPass::Ptr hsbShiftPass;
+    NoiseWarpPass::Ptr noiseWarpPass;
+    ofSoundPlayer soundPlayer;
 };
