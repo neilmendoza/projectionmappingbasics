@@ -24,3 +24,4 @@ bin/*.exp
 bin/*.ilk
 bin/*.lib
 bin/*.pdb
+*/*/*/*.xml

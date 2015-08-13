@@ -1,13 +1,18 @@
 #pragma once
 
 #include "ofMain.h"
+#include "ofxPostProcessing.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp
 {
 public:
+    static const ofVec3f BOX_DIMS;
+    
     void setup();
     void update();
     void draw();
+    void exit();
 
     void keyPressed(int key);
     void keyReleased(int key);
@@ -20,6 +25,16 @@ public:
     void gotMessage(ofMessage msg);
 
 private:
+    void projectorPositionChanged(ofVec3f& projectorPosition);
+    void projectorTiltChanged(float& projectorTilt);
+    
     ofCamera projector;
     ofVboMesh boxMesh;
+    ofVboMesh wireframeMesh;
+    
+    // user interface
+    ofxPanel gui;
+    ofParameter<ofVec3f> projectorPosition;
+    ofParameter<float> projectorTilt;
+    ofParameter<float> boxAngle;
 };

@@ -20,7 +20,7 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
-		<string>../../../../../addons/ofxPostProcessing</string>
+		<string>../../../../addons/ofxPostProcessing</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>

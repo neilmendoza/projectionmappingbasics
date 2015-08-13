@@ -25,4 +25,5 @@ public:
 private:
     ofEasyCam camera;
     ofVboMesh boxMesh;
+    ofVboMesh wireframeMesh;
 };
