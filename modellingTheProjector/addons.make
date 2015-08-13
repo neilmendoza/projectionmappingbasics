@@ -1,2 +1,3 @@
 addons
 ofxPostProcessing
+ofxGui

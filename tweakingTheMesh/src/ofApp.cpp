@@ -2,6 +2,49 @@
 
 const ofVec3f ofApp::BOX_DIMS = ofVec3f(26.65f, 26.65f, 11.f);
 
+const ofVec3f ofApp::BOX_VERTICES[] = {
+    //back
+    ofVec3f(-.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    ofVec3f(-.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, -.5f * BOX_DIMS.z),
+    
+    // front
+    ofVec3f(-.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, -.5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, .5f * BOX_DIMS.z),
+    ofVec3f(-.5f * BOX_DIMS.x, .5f * BOX_DIMS.y, .5f * BOX_DIMS.z)
+};
+
+const unsigned ofApp::OUTLINE_INDICES[] = {
+    // back
+    0,1, 1,2, 2,3, 3,0,
+    // front
+    4,5, 5,6, 6,7, 7,4,
+    // sides
+    0,4, 1,5, 2,6, 3,7
+};
+
+const unsigned ofApp::FACE_INDICES[] = {
+    // back
+    0, 1, 2, 0, 2, 3,
+    
+    // front
+    4, 5, 6, 4, 6, 7,
+    
+    // left
+    0, 4, 7, 0, 7, 3,
+    
+    // right
+    1, 5, 6, 1, 6, 2,
+    
+    // top
+    0, 1, 5, 0, 5, 4,
+    
+    // bottom
+    3, 2, 6, 3, 6, 7
+};
+
 //--------------------------------------------------------------
 void ofApp::setup()
 {
@@ -10,29 +53,60 @@ void ofApp::setup()
     ofBackground(0);
     
     // check whether we've previously saved meshes
-    if (ofFile("wireframe.ply").exists() && ofFile("box.ply").exists())
+    if (ofFile("outline.ply").exists() && ofFile("box.ply").exists())
     {
         // we have saved meshes so load them up
-        wireframeMesh.load("wireframe.ply");
+        outlineMesh.load("outline.ply");
+        outlineMesh.setMode(OF_PRIMITIVE_LINES);
         boxMesh.load("box.ply");
     }
     else
     {
-        // create a new box mesh that is the dimensions that we have measured
-        wireframeMesh = ofMesh::box(BOX_DIMS.x, BOX_DIMS.y, BOX_DIMS.z);
-    
-        // create a new box mesh that is the dimensions that we want
+        // create an outline of a box using a mesh in OF_PRIMITIVE_LINES mode
+        // so that every two vertices represents a line
+        outlineMesh.setMode(OF_PRIMITIVE_LINES);
+        
+        // add in all the vertices to the mesh
+        for (unsigned i = 0; i < NUM_BOX_VERTICES; ++i)
+        {
+            outlineMesh.addVertex(BOX_VERTICES[i]);
+        }
+        
+        // rather than adding each vertex multiple times, we add
+        // indices that point to where the appropriate vertices
+        // are for each line in the outline
+        for (unsigned i = 0; i < NUM_OUTLINE_INDICES; ++i)
+        {
+            outlineMesh.addIndex(OUTLINE_INDICES[i]);
+        }
+        
+        // create a box mesh using OF_PRIMITIVE_TRIANGLES
+        // this is a mesh where every 3 vertices represents a triangle
+        boxMesh.setMode(OF_PRIMITIVE_TRIANGLES);
+        
+        // add in all the vertices of the box
         // we make the dimensions very slightly smaller than the dimensions
         // of the outline of the box so that the computer knows that the
         // outline is to be rendered outside of the box and we can use
         // it to hide the outline at the back of the box
-        boxMesh = ofMesh::box(.999f * BOX_DIMS.x, .999f * BOX_DIMS.y, .999f * BOX_DIMS.z);
+        for (unsigned i = 0; i < NUM_BOX_VERTICES; ++i)
+        {
+            boxMesh.addVertex(.999f * BOX_VERTICES[i]);
+        }
+        
+        // rather than adding each vertex multiple times, we add
+        // indices that point to where the appropriate vertices
+        // are for each triangle in the mesh
+        for (unsigned i = 0; i < NUM_FACE_INDICES; ++i)
+        {
+            boxMesh.addIndex(FACE_INDICES[i]);
+        }
     }
     
     // set the camera in the meshes, this is needed so that we know
     // how to translate from screen coordinates to world coordinated to be able
     // to pick points to warp
-    wireframeMesh.setCamera(projector);
+    outlineMesh.setCamera(projector);
     boxMesh.setCamera(projector);
     
     // put our projector 200cm away from our object that will be at the origin
@@ -98,13 +172,12 @@ void ofApp::draw()
     // draw the selected vertices for mesh warping
     boxMesh.drawSelectedVertices();
     
-    // now draw a glowing green outline
+    // now draw a the outline
     ofSetColor(255);
-    ofSetLineWidth(2.f);
-    wireframeMesh.drawWireframe();
+    outlineMesh.draw();
     
     // draw the selected vertices for mesh warping
-    wireframeMesh.drawSelectedVertices();
+    outlineMesh.drawSelectedVertices();
     
     // reset the transform to what it was before we rotated it
     ofPopMatrix();
@@ -127,7 +200,7 @@ void ofApp::exit()
     
     // save the meshes
     boxMesh.save("box.ply");
-    wireframeMesh.save("wireframe.ply");
+    outlineMesh.save("outline.ply");
 }
 
 void ofApp::projectorPositionChanged(ofVec3f& projectorPosition)
@@ -147,7 +220,7 @@ void ofApp::projectorTiltChanged(float& projectorTilt)
 void ofApp::tweakMeshChanged(bool& tweakMesh)
 {
     // enable or disable tweaking of these meshes
-    wireframeMesh.setEventsEnabled(tweakMesh);
+    outlineMesh.setEventsEnabled(tweakMesh);
     boxMesh.setEventsEnabled(tweakMesh);
 }
 
@@ -155,7 +228,7 @@ void ofApp::boxAngleChanged(float& boxAngle)
 {
     ofMatrix4x4 rotation = ofMatrix4x4::newRotationMatrix(boxAngle, ofVec3f(0.f, 1.f, 0.f));
     boxMesh.setTransform(rotation);
-    wireframeMesh.setTransform(rotation);
+    outlineMesh.setTransform(rotation);
 }
 
 void ofApp::keyPressed(int key)

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:stepThree.xcodeproj">
+      location = "self:modellingTheProjector.xcodeproj">
    </FileRef>
 </Workspace>

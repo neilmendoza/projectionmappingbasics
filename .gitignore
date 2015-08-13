@@ -25,3 +25,4 @@ bin/*.ilk
 bin/*.lib
 bin/*.pdb
 */*/*/*.xml
+*/*/*/*.ply

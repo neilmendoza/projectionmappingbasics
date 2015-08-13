@@ -1143,11 +1143,11 @@
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
-						<string>../../../addons/libs</string>
-						<string>../../../addons/src</string>
-						<string>src</string>
+						<string>../../../addons/addons/libs</string>
+						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
+						<string>src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -1205,11 +1205,11 @@
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
-						<string>../../../addons/libs</string>
-						<string>../../../addons/src</string>
-						<string>src</string>
+						<string>../../../addons/addons/libs</string>
+						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
+						<string>src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -1329,7 +1329,7 @@
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>stepOne</string>
+				<string>modellingTheScene</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -1346,7 +1346,7 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>stepOneDebug.app</string>
+				<string>modellingTheSceneDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>
@@ -1373,11 +1373,11 @@
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
-						<string>../../../addons/libs</string>
-						<string>../../../addons/src</string>
-						<string>src</string>
+						<string>../../../addons/addons/libs</string>
+						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
+						<string>src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>
@@ -1425,11 +1425,11 @@
 					<key>HEADER_SEARCH_PATHS</key>
 					<array>
 						<string>$(OF_CORE_HEADERS)</string>
-						<string>../../../addons/libs</string>
-						<string>../../../addons/src</string>
-						<string>src</string>
+						<string>../../../addons/addons/libs</string>
+						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
+						<string>src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>
