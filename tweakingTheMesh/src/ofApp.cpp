@@ -9,24 +9,30 @@ void ofApp::setup()
     ofSetFrameRate(60);
     ofBackground(0);
     
-    // create a new box mesh that is the dimensions that we have measured
-    wireframeMesh = ofMesh::box(BOX_DIMS.x, BOX_DIMS.y, BOX_DIMS.z);
+    // check whether we've previously saved meshes
+    if (ofFile("wireframe.ply").exists() && ofFile("box.ply").exists())
+    {
+        // we have saved meshes so load them up
+        wireframeMesh.load("wireframe.ply");
+        boxMesh.load("box.ply");
+    }
+    else
+    {
+        // create a new box mesh that is the dimensions that we have measured
+        wireframeMesh = ofMesh::box(BOX_DIMS.x, BOX_DIMS.y, BOX_DIMS.z);
     
-    // set the camera in the mesh, this is needed so that we know
+        // create a new box mesh that is the dimensions that we want
+        // we make the dimensions very slightly smaller than the dimensions
+        // of the outline of the box so that the computer knows that the
+        // outline is to be rendered outside of the box and we can use
+        // it to hide the outline at the back of the box
+        boxMesh = ofMesh::box(.999f * BOX_DIMS.x, .999f * BOX_DIMS.y, .999f * BOX_DIMS.z);
+    }
+    
+    // set the camera in the meshes, this is needed so that we know
     // how to translate from screen coordinates to world coordinated to be able
     // to pick points to warp
     wireframeMesh.setCamera(projector);
-    
-    // create a new box mesh that is the dimensions that we want
-    // we make the dimensions very slightly smaller than the dimensions
-    // of the outline of the box so that the computer knows that the
-    // outline is to be rendered outside of the box and we can use
-    // it to hide the outline at the back of the box
-    boxMesh = ofMesh::box(.999f * BOX_DIMS.x, .999f * BOX_DIMS.y, .999f * BOX_DIMS.z);
-    
-    // set the camera in the mesh, this is needed so that we know
-    // how to translate from screen coordinates to world coordinated to be able
-    // to pick points to warp
     boxMesh.setCamera(projector);
     
     // put our projector 200cm away from our object that will be at the origin
@@ -37,7 +43,8 @@ void ofApp::setup()
     // https://docs.google.com/spreadsheets/d/136NbNeFGER7yiOVgik7hueTRkYGkNHcqBlRFdfcix7I/edit#gid=0
     projector.setFov(16.84f);
     
-        projector.lookAt(ofVec3f(0.f, 0.f, 0.f));
+    // look at the origin where our box is
+    projector.lookAt(ofVec3f(0.f, 0.f, 0.f));
     
     // add functions to be called when the projector position and tilt are changed
     // and the boxAngle in relation to the camera
@@ -48,7 +55,7 @@ void ofApp::setup()
     // add functions to be called when the tweakMesh button is enabled and disabled
     tweakMesh.addListener(this, &ofApp::tweakMeshChanged);
     
-    // set up user interface so we can tweak the projector position
+    // set up user interface so we can tweak the projection
     gui.setup();
     gui.add(boxAngle.set("boxAngle", 0.f, -90.f, 90.f));
     gui.add(projectorTilt.set("projectorTilt", 0.f, -30.f, -10.f));
@@ -60,10 +67,6 @@ void ofApp::setup()
     
     // load the settings from the previous time we ran the application
     gui.loadFromFile("settings.xml");
-    
-    // position our object at the origin (0, 0, 0)
-    projector.rotateAround(boxAngle, ofVec3f(0.f, 1.f, 0.f), ofVec3f());
-    projector.lookAt(ofVec3f());
 }
 
 //--------------------------------------------------------------
@@ -121,6 +124,10 @@ void ofApp::exit()
 {
     // save the settings
     gui.saveToFile("settings.xml");
+    
+    // save the meshes
+    boxMesh.save("box.ply");
+    wireframeMesh.save("wireframe.ply");
 }
 
 void ofApp::projectorPositionChanged(ofVec3f& projectorPosition)
