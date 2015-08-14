@@ -9,6 +9,86 @@
 		<string>46</string>
 		<key>objects</key>
 		<dict>
+			<key>D788AA6C02C967E4BA1BC95D</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>WarpableMesh.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxWarpableMesh/src/WarpableMesh.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>FF624A22191F0FC3E77149D7</key>
+			<dict>
+				<key>fileRef</key>
+				<string>2A69B24AB759595A39E8D162</string>
+				<key>isa</key>
+				<string>PBXBuildFile</string>
+			</dict>
+			<key>2A69B24AB759595A39E8D162</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.cpp.cpp</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>WarpableMesh.cpp</string>
+				<key>path</key>
+				<string>../../../addons/ofxWarpableMesh/src/WarpableMesh.cpp</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
+			<key>523D9F2712BFBB8956BA7F07</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>6ED9E4FCC59EC120EECA46D7</string>
+					<string>2A69B24AB759595A39E8D162</string>
+					<string>D788AA6C02C967E4BA1BC95D</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>src</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>5A8E2D41E1D727DD9DBF191F</key>
+			<dict>
+				<key>children</key>
+				<array>
+					<string>523D9F2712BFBB8956BA7F07</string>
+				</array>
+				<key>isa</key>
+				<string>PBXGroup</string>
+				<key>name</key>
+				<string>ofxWarpableMesh</string>
+				<key>sourceTree</key>
+				<string>&lt;group&gt;</string>
+			</dict>
+			<key>6ED9E4FCC59EC120EECA46D7</key>
+			<dict>
+				<key>explicitFileType</key>
+				<string>sourcecode.c.h</string>
+				<key>fileEncoding</key>
+				<string>30</string>
+				<key>isa</key>
+				<string>PBXFileReference</string>
+				<key>name</key>
+				<string>ofxWarpableMesh.h</string>
+				<key>path</key>
+				<string>../../../addons/ofxWarpableMesh/src/ofxWarpableMesh.h</string>
+				<key>sourceTree</key>
+				<string>SOURCE_ROOT</string>
+			</dict>
 			<key>0A1DAC09F322AE313A40706D</key>
 			<dict>
 				<key>explicitFileType</key>
@@ -1382,6 +1462,7 @@
 				<array>
 					<string>BD52EC6DCE402D90869A80A1</string>
 					<string>480A780D8D0308AE4A368801</string>
+					<string>5A8E2D41E1D727DD9DBF191F</string>
 				</array>
 				<key>isa</key>
 				<string>PBXGroup</string>
@@ -1538,9 +1619,11 @@
 						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
-						<string>src</string>
 						<string>../../../addons/ofxGui/libs</string>
 						<string>../../../addons/ofxGui/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxWarpableMesh/libs</string>
+						<string>../../../addons/ofxWarpableMesh/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -1602,9 +1685,11 @@
 						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
-						<string>src</string>
 						<string>../../../addons/ofxGui/libs</string>
 						<string>../../../addons/ofxGui/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxWarpableMesh/libs</string>
+						<string>../../../addons/ofxWarpableMesh/src</string>
 					</array>
 					<key>CONFIGURATION_BUILD_DIR</key>
 					<string>$(SRCROOT)/bin/</string>
@@ -1694,6 +1779,7 @@
 					<string>837220E80EB56CD44AD27F2A</string>
 					<string>B56FE57CC35806596D38118C</string>
 					<string>1CD33E884D9E3358252E82A1</string>
+					<string>FF624A22191F0FC3E77149D7</string>
 				</array>
 				<key>isa</key>
 				<string>PBXSourcesBuildPhase</string>
@@ -1733,7 +1819,7 @@
 				<key>isa</key>
 				<string>PBXNativeTarget</string>
 				<key>name</key>
-				<string>stepFive</string>
+				<string>soundReactive</string>
 				<key>productName</key>
 				<string>myOFApp</string>
 				<key>productReference</key>
@@ -1750,7 +1836,7 @@
 				<key>isa</key>
 				<string>PBXFileReference</string>
 				<key>path</key>
-				<string>stepFiveDebug.app</string>
+				<string>soundReactiveDebug.app</string>
 				<key>sourceTree</key>
 				<string>BUILT_PRODUCTS_DIR</string>
 			</dict>
@@ -1781,9 +1867,11 @@
 						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
-						<string>src</string>
 						<string>../../../addons/ofxGui/libs</string>
 						<string>../../../addons/ofxGui/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxWarpableMesh/libs</string>
+						<string>../../../addons/ofxWarpableMesh/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>
@@ -1835,9 +1923,11 @@
 						<string>../../../addons/addons/src</string>
 						<string>../../../addons/ofxPostProcessing/libs</string>
 						<string>../../../addons/ofxPostProcessing/src</string>
-						<string>src</string>
 						<string>../../../addons/ofxGui/libs</string>
 						<string>../../../addons/ofxGui/src</string>
+						<string>src</string>
+						<string>../../../addons/ofxWarpableMesh/libs</string>
+						<string>../../../addons/ofxWarpableMesh/src</string>
 					</array>
 					<key>COMBINE_HIDPI_IMAGES</key>
 					<string>YES</string>

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:stepFive.xcodeproj">
+      location = "self:glowingLines.xcodeproj">
    </FileRef>
 </Workspace>

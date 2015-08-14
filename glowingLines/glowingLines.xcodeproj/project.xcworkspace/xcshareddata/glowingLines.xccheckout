@@ -5,22 +5,26 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>A3F7E88F-7EAB-4BD2-A59D-B8DE18FFC3B8</string>
+	<string>5F181727-03FB-4D53-928B-67B20FA89239</string>
 	<key>IDESourceControlProjectName</key>
-	<string>stepFour</string>
+	<string>glowingLines</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>16B58E21662E428C29B8CA5BE3F722D483D4EB87</key>
+		<string>bitbucket.org:neilmendoza/ofxwarpablemesh.git</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
 		<string>github.com:neilmendoza/ofxPostProcessing.git</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>github.com:neilmendoza/projectionmappingbasics.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>glowingLines/stepFour.xcodeproj</string>
+	<string>glowingLines/glowingLines.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>16B58E21662E428C29B8CA5BE3F722D483D4EB87</key>
+		<string>../../../../addons/ofxWarpableMesh</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
-		<string>../../../../../addons/ofxPostProcessing</string>
+		<string>../../../../addons/ofxPostProcessing</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>
@@ -39,6 +43,14 @@
 			<string>95F70890EFD46183734FEDFE52CF53391DE6937E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxPostProcessing</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>16B58E21662E428C29B8CA5BE3F722D483D4EB87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxWarpableMesh</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>

@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "ofxPostProcessing.h"
+#include "ofxWarpableMesh.h"
+#include "ofxGui.h"
 
 class ofApp : public ofBaseApp
 {
@@ -15,6 +17,7 @@ public:
     void setup();
     void update();
     void draw();
+    void exit();
 
     void keyPressed(int key);
     void keyReleased(int key);
@@ -27,8 +30,22 @@ public:
     void gotMessage(ofMessage msg);
 
 private:
+    void projectorPositionChanged(ofVec3f& projectorPosition);
+    void projectorTiltChanged(float& projectorTilt);
+    void tweakMeshChanged(bool& tweakMesh);
+    void boxAngleChanged(float& boxAngle);
+    
     ofCamera projector;
-    ofVboMesh boxMesh;
-    ofVboMesh outlineMesh;
+    ofxWarpableMesh boxMesh;
+    ofxWarpableMesh outlineMesh;
+    
+    // post processing effects
     ofxPostProcessing outlineEffects;
+    
+    // user interface
+    ofxPanel gui;
+    ofParameter<ofVec3f> projectorPosition;
+    ofParameter<float> projectorTilt;
+    ofParameter<float> boxAngle;
+    ofParameter<bool> tweakMesh;
 };
