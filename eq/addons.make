@@ -1,0 +1,4 @@
+addons
+ofxPostProcessing
+ofxGui
+ofxWarpableMesh
