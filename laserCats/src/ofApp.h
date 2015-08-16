@@ -35,7 +35,6 @@ public:
 private:
     void projectorPositionChanged(ofVec3f& projectorPosition);
     void projectorTiltChanged(float& projectorTilt);
-    void tweakMeshChanged(bool& tweakMesh);
     void boxAngleChanged(float& boxAngle);
     
     ofCamera projector;
@@ -47,7 +46,6 @@ private:
     ofParameter<ofVec3f> projectorPosition;
     ofParameter<float> projectorTilt;
     ofParameter<float> boxAngle;
-    ofParameter<bool> tweakMesh;
     
     // outline
     ofxPostProcessing outlineEffects;

@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:eq.xcodeproj">
+      location = "self:laserCats.xcodeproj">
    </FileRef>
 </Workspace>

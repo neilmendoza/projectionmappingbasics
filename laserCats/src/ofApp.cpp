@@ -76,6 +76,16 @@ void ofApp::setup()
     outlineMesh.setCamera(projector);
     boxMesh.setCamera(projector);
     
+    // enable keyboard and mouse events for the meshes
+    // so that they can be warped
+    outlineMesh.setEventsEnabled(true);
+    boxMesh.setEventsEnabled(true);
+    
+    // enable keyboard and mouse events for the meshes
+    // so that they can be warped
+    outlineMesh.setEventsEnabled(true);
+    boxMesh.setEventsEnabled(true);
+    
     // put our projector 200cm away from our object that will be at the origin
     projector.setPosition(0, 0, -200.f);
     
@@ -93,9 +103,6 @@ void ofApp::setup()
     projectorTilt.addListener(this, &ofApp::projectorTiltChanged);
     boxAngle.addListener(this, &ofApp::boxAngleChanged);
     
-    // add functions to be called when the tweakMesh button is enabled and disabled
-    tweakMesh.addListener(this, &ofApp::tweakMeshChanged);
-    
     // set up user interface so we can tweak the projection
     gui.setup();
     gui.add(boxAngle.set("boxAngle", 0.f, -90.f, 90.f));
@@ -104,7 +111,6 @@ void ofApp::setup()
                                   ofVec3f(0.f, 0.f, -200.f),
                                   ofVec3f(-10.f, 20.f, -150.f),
                                   ofVec3f(10.f, 50.f, -100.f)));
-    gui.add(tweakMesh.set("tweakMesh", false));
     
     // load the settings from the previous time we ran the application
     gui.loadFromFile("settings.xml");
@@ -207,7 +213,10 @@ void ofApp::draw()
     eqFbo.getTexture().unbind();
     
     // now draw a glowing green outline
-    ofSetColor(0, 255, 0);
+    // we want the outline to pulsate slightly, so we map sin(ofGetElapsedTimef())
+    // from its initial range (-1 to 1) to between 127 (half brightness)
+    // and 255 (full brightness)
+    ofSetColor(0, ofMap(sin(ofGetElapsedTimef()), -1.f, 1.f, 127.f, 255.f), 0);
     outlineMesh.draw();
     outlineMesh.drawSelectedVertices();
     
@@ -245,13 +254,6 @@ void ofApp::projectorTiltChanged(float& projectorTilt)
     
     // change the tilt (x rotation)
     projector.setOrientation(ofVec3f(projectorTilt, orientation.y, orientation.z));
-}
-
-void ofApp::tweakMeshChanged(bool& tweakMesh)
-{
-    // enable or disable tweaking of these meshes
-    outlineMesh.setEventsEnabled(tweakMesh);
-    boxMesh.setEventsEnabled(tweakMesh);
 }
 
 void ofApp::boxAngleChanged(float& boxAngle)
