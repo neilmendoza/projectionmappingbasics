@@ -5,11 +5,13 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>0C06D78D-3974-4588-99B9-40F6191DDD82</string>
+	<string>2A20411B-F242-41C3-84ED-7C33E325EBBA</string>
 	<key>IDESourceControlProjectName</key>
 	<string>modellingTheScene</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
+		<key>16B58E21662E428C29B8CA5BE3F722D483D4EB87</key>
+		<string>bitbucket.org:neilmendoza/ofxwarpablemesh.git</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
 		<string>github.com:neilmendoza/ofxPostProcessing.git</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
@@ -19,8 +21,10 @@
 	<string>modellingTheScene/modellingTheScene.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
+		<key>16B58E21662E428C29B8CA5BE3F722D483D4EB87</key>
+		<string>../../../../../addons/ofxWarpableMesh</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
-		<string>../../../../addons/ofxPostProcessing</string>
+		<string>../../../../../addons/ofxPostProcessing</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>
@@ -39,6 +43,14 @@
 			<string>95F70890EFD46183734FEDFE52CF53391DE6937E</string>
 			<key>IDESourceControlWCCName</key>
 			<string>ofxPostProcessing</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>16B58E21662E428C29B8CA5BE3F722D483D4EB87</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ofxWarpableMesh</string>
 		</dict>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
