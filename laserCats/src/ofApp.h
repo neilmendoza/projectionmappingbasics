@@ -46,15 +46,23 @@ private:
     ofParameter<ofVec3f> projectorPosition;
     ofParameter<float> projectorTilt;
     ofParameter<float> boxAngle;
+    bool drawGui;
     
     // outline
     ofxPostProcessing outlineEffects;
     
-    // eq stuff
+    // this plays our audio file
     ofSoundPlayer soundPlayer;
+
+    // these variables will hold the data related to the
+    // levels of frequency bands in the sound file
     float smoothedFft[NUM_FFT_BANDS];
     float maxFft[NUM_FFT_BANDS];
     float normalisedFft[NUM_FFT_BANDS];
+
+    // this frame buffer is where we will hold the eq
     ofFbo eqFbo;
+
+    // this is our laser cat image
     ofImage catImage;
 };

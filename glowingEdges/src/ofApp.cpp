@@ -136,7 +136,7 @@ void ofApp::draw()
     ofEnableDepthTest();
     
     // draw our box mesh in dark grey
-    ofSetColor(20);
+    ofSetColor(10);
     boxMesh.draw();
     
     // we set the line width of the box to be drawn to 3
@@ -161,6 +161,8 @@ void ofApp::draw()
     
     // finish drawing the scene from the perspective of the projector
     outlineEffects.end();
+    
+    gui.draw();
 }
 
 void ofApp::exit()

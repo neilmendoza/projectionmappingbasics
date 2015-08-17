@@ -22,9 +22,9 @@
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>16B58E21662E428C29B8CA5BE3F722D483D4EB87</key>
-		<string>../../../../../addons/ofxWarpableMesh</string>
+		<string>../../../../addons/ofxWarpableMesh</string>
 		<key>95F70890EFD46183734FEDFE52CF53391DE6937E</key>
-		<string>../../../../../addons/ofxPostProcessing</string>
+		<string>../../../../addons/ofxPostProcessing</string>
 		<key>ED63D39C32CCF6FC156A6F0AF238E54FA4C5DFAC</key>
 		<string>../../..</string>
 	</dict>
